@@ -32,6 +32,7 @@ import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 
 import { tools, useLogoStyles } from './shared';
+import { ChatbotCard } from '../chatbot/ChatbotCard';
 
 const useStyles = makeStyles(theme => ({
   searchBarInput: {
@@ -107,6 +108,11 @@ export const HomePage = () => {
               </Grid>
               <Grid item xs={12} md={6}>
                 <HomePageRecentlyVisited />
+              </Grid>
+            </Grid>
+            <Grid container item xs={12} justifyContent="center">
+              <Grid item xs={12} md={8}>
+                <ChatbotCard />
               </Grid>
             </Grid>
             <Grid container item xs={12}>

@@ -33,6 +33,10 @@ import { DefaultScaffolderFormDecoratorsApi } from '@backstage/plugin-scaffolder
 import { mockDecorator } from './components/scaffolder/decorators';
 import { scaffolderApiRef } from '@backstage/plugin-scaffolder-react';
 import { ScaffolderClient } from '@backstage/plugin-scaffolder';
+import {
+  chatbotApiRef,
+  McpCatalogChatbotApi,
+} from './components/chatbot/api';
 
 export const apis: AnyApiFactory[] = [
   createApiFactory({
@@ -71,6 +75,17 @@ export const apis: AnyApiFactory[] = [
       DefaultScaffolderFormDecoratorsApi.create({
         decorators: [mockDecorator],
       }),
+  }),
+
+  createApiFactory({
+    api: chatbotApiRef,
+    deps: {
+      discoveryApi: discoveryApiRef,
+      fetchApi: fetchApiRef,
+      identityApi: identityApiRef,
+    },
+    factory: ({ discoveryApi, fetchApi, identityApi }) =>
+      new McpCatalogChatbotApi({ discoveryApi, fetchApi, identityApi }),
   }),
 
   ScmAuth.createDefaultApiFactory(),
