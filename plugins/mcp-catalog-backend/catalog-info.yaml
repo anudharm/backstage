@@ -1,0 +1,9 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: backstage-plugin-mcp-catalog-backend
+  title: '@backstage/plugin-mcp-catalog-backend'
+spec:
+  lifecycle: experimental
+  type: backstage-backend-plugin
+  owner: maintainers
